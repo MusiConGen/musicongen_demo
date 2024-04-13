@@ -1,0 +1,265 @@
+.container {
+    max-width: 100%;
+    min-width: 320px;
+    width: 98%;
+    margin: 20px auto;
+    padding: 20px 40px; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+    margin: 0.5em 0;
+    line-height: 1.3;
+}
+
+.authors {
+    font-size: 16px;
+    color: #666;
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.description, .sub-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: justify;
+    overflow-wrap: break-word;
+}
+
+.subtitle {
+    font-size: 22px;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    margin: 40px 0 10px;
+}
+
+.sub-description {
+    margin-bottom: 10px;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+
+.chord-graph table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.text-cell {
+    font-size: 10pt; /* Set the font size to 10pt */
+    width: 6%; /* Text cells occupy 1/8 of the table width */
+    vertical-align: middle; /* Vertically center text */
+    text-align: center; /* Horizontally center text */
+    padding: 10px 20px; /* Adequate padding for visual appeal */
+}
+
+.sample-table .text-cell {
+    width: auto; /* Allow natural content width */
+    padding: 8px; /* Ensure some padding */
+    text-align: left; /* Align text to the left */
+}
+
+.img-cell {
+    width: 87.5%; /* Image cells occupy the remaining width */
+    padding: 5px 20px; /* Uniform padding for consistency */
+    vertical-align: middle; /* Vertically center images */
+}
+
+.chord-graph img {
+    width: 100%; /* Images stretch to fill the cell width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.audio-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.sample-table .narrow {
+    width: auto; /* Auto width based on content, minimum content width */
+}
+
+.sample-table td:not(.narrow) {
+    width: 17.5%; /* Adjust this formula based on your specific widths */
+}
+
+audio {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 5px;
+}
+
+@media (max-width: 600px) {
+    h1, .subtitle {
+        font-size: 20px;
+    }
+    .description, .authors, .sub-description {
+        font-size: 14px;
+    }
+    .container {
+        padding: 20px 20px; /* Reduced padding on smaller screens */
+    }
+    .text-cell, .img-cell {
+        padding: 5px 10px; /* Reduced padding for cells on smaller screens */
+    }
+}
+
+.sample-table table {
+    width: 97%;
+    border-collapse: collapse;
+    table-layout: fixed;  /* Ensures consistent column sizes */
+}
+
+.sample-table .table-header {
+    font-size: 10pt;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f2f2f2;  /* Light grey background for header */
+}
+
+.sample-table td {
+    border: 1px solid #ddd;  /* Light grey border for clarity */
+    padding: 8px;  /* Adequate padding */
+}
+
+.text-cell.small-text {
+    font-size: 10pt; /* Smaller font size for sample labels */
+    color: black;  /* Black color for text */
+    width: 12.5%;  /* This cell takes up 1/8 of the width */
+    text-align: center;  /* Center text horizontally */
+    vertical-align: middle;  /* Center text vertically */
+}
+
+.audio-controls, .sample-table audio {
+    width: 100%;  /* Full width for audio elements */
+    max-width: none;  /* Override max-width for audio elements in this context */
+}
+
+.sample-table .table-header {
+    font-size: 10pt;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f2f2f2;  /* Light grey background for header */
+}
+
+.sample-table td {
+    border: 1px solid #ddd;  /* Light grey border for clarity */
+    padding: 8px;  /* Adequate padding */
+    text-align: center;  /* Center text and content */
+    vertical-align: middle;  /* Center content vertically */
+}
+
+.text-cell.small-text {
+    font-size: 10pt; /* Smaller font size for sample labels */
+    color: black;  /* Black color for text */
+    width: 12.5%;  /* This cell takes up 1/8 of the width */
+    text-align: center;  /* Center text horizontally */
+    vertical-align: middle;  /* Center text vertically */
+}
+
+.audio-controls, .sample-table audio {
+    width: 90%;  /* Audio width slightly less than 100% to prevent overflow */
+    max-width: none;  /* Override max-width for audio elements in this context */
+}
+
+@media (max-width: 600px) {
+    h1, .subtitle {
+        font-size: 20px;
+    }
+    .description, .authors, .sub-description {
+        font-size: 14px;
+    }
+    .container {
+        padding: 20px 20px; /* Reduced padding on smaller screens */
+    }
+    .text-cell, .img-cell {
+        padding: 5px 10px; /* Reduced padding for cells on smaller screens */
+    }
+    .sample-table audio {
+        width: 100%;  /* Full width on smaller screens to ensure visibility */
+    }
+}
+
+/* progress bar */
+.chord-info {
+    position: relative;  /* Establishes a positioning context for contained elements */
+    width: 100%;  /* Adjust this as necessary to fit your layout */
+    max-width: 120%;  /* Keeps the image from extending too wide */
+    display: block;
+}
+
+.chord-img {
+    width: 100%;  /* Ensures the image fills the container */
+    display: block;  /* Removes any extra space around the image */
+    position: relative;  /* Ensures it's part of the positioning context */
+    z-index: 1;  /* Lower z-index so that the progress bar can appear on top */
+}
+
+.chord-img2 {
+    width: 100%;  /* Ensures the image fills the container */
+    display: block;  /* Removes any extra space around the image */
+    position: relative;  /* Ensures it's part of the positioning context */
+    z-index: 1;  /* Lower z-index so that the progress bar can appear on top */
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 19%;  /* Adjust this as needed to position over the image */
+    left: 6.1%;
+    width: 0;  /* Initial state, no width */
+    height: 77.5%;
+    background-color: rgba(128, 128, 128, 0.5);  /* Gray with transparency */
+    transition: width 0.5s ease-out;
+    z-index: 2;  /* Ensures it appears over the image */
+}
+
+.progress-bar:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: black;  /* Vertical bar color */
+}
+
+.progress-bar2 {
+    position: absolute;
+    bottom: 19%;  /* Adjust this as needed to position over the image */
+    left: 6.1%;
+    width: 0;  /* Initial state, no width */
+    height: 77.5%;
+    background-color: rgba(128, 128, 128, 0.5);  /* Gray with transparency */
+    transition: width 0.5s ease-out;
+    z-index: 2;  /* Ensures it appears over the image */
+}
+
+.progress-bar2:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: black;  /* Vertical bar color */
+}

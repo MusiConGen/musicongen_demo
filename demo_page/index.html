@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Sample Player with Synced Graph</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MusiConGen: Rhythm and Chord Control for Transformer-Based Text-to-Music Generation</h1>
+            <p class="description">We introduce MusiConGen, a Transformer-based text-to-music model that applies temporal conditioning to enhance control over rhythm and chord which is finetuned from the pretrained MusicGen-melody framework.</p>
+        </header>
+        <h2 class="subtitle">Chord, BPM and text Condition</h2>
+        <p class="sub-description">The following samples are generated from our proposed MusiConGen model. We use chord and rhythm controls in symbolic representation with 5 genres of text description to generate these samples. The chords, BPMs are labeled data from RWC-pop-100. The chords of generated samples are estimated by BTC chord recognition model as mentioned in paper.</p>
+        <hr>
+        <div class="chord-info" style="position: relative;">
+            <div style="display: flex;">
+                <div style="width: 6%; display: flex; flex-flow: column wrap;">
+                    <p style="font-size: 15px; flex: 1 0 auto;">Generated Sample's Chords</p>
+                    <p style="font-size: 15px; flex: 1 0 auto;">Reference Chords</p>
+                </div>
+                <img src="samples/sample_0/443_blues.png" alt="Chord" class="chord-img" style="width: 100%; max-width: 90%; display: block; margin: 0;">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+        
+        <div class="sample-table">
+            <table>
+                <tr class="table-header">
+                    <td class="text-cell narrow">description</td>  <!-- First cell is empty for alignment purposes -->
+                    <td>A laid-back blues shuffle with a relaxed tempo, warm guitar tones, and a comfortable groove, perfect for a slow dance or a night in. Instruments: electric guitar, bass, drums.</td>
+                    <td>A smooth acid jazz track with a laid-back groove, silky electric piano, and a cool bass, providing a modern take on jazz. Instruments: electric piano, bass, drums.</td>
+                    <td>A classic rock n' roll tune with catchy guitar riffs, driving drums, and a pulsating bass line, reminiscent of the golden era of rock. Instruments: electric guitar, bass, drums.</td>
+                    <td>A high-energy funk tune with slap bass, rhythmic guitar riffs, and a tight horn section, guaranteed to get you grooving. Instruments: bass, guitar, trumpet, saxophone, drums.</td>
+                    <td>A heavy metal onslaught with double kick drum madness, aggressive guitar riffs, and an unrelenting bass, embodying the spirit of metal. Instruments: electric guitar, bass guitar, drums.</td>
+                </tr>
+                <tr>
+                    <td class="text-cell narrow">Sample 001</td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_0/443_blues.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_0/443_blues.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_0/443_jazz.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_0/443_jazz.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_0/443_rock.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_0/443_rock.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_0/443_funk.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_0/443_funk.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_0/443_metal.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_0/443_metal.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>               
+                <tr>
+                    <td class="text-cell narrow">Sample 002</td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_1/97_blues.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_1/97_blues.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_1/97_jazz.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_1/97_jazz.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_1/97_rock.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_1/97_rock.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_1/97_funk.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_1/97_funk.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_1/97_metal.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_1/97_metal.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>
+                <tr>
+                    <td class="text-cell narrow">Sample 003</td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_2/359_blues.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_2/359_blues.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_2/359_jazz.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_2/359_jazz.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_2/359_rock.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_2/359_rock.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_2/359_funk.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_2/359_funk.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_2/359_metal.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_2/359_metal.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>
+                <tr>
+                    <td class="text-cell narrow">Sample 004</td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_3/132_blues.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_3/132_blues.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_3/132_jazz.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_3/132_jazz.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_3/132_rock.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_3/132_rock.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_3/132_funk.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_3/132_funk.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_3/132_metal.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_3/132_metal.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>
+                <tr>
+                    <td class="text-cell narrow">Sample 005</td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_4/105_blues.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_4/105_blues.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_4/105_jazz.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_4/105_jazz.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_4/105_rock.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_4/105_rock.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_4/105_funk.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_4/105_funk.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage(this, 'samples/sample_4/105_metal.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/sample_4/105_metal.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>
+                    <!-- Add more rows as needed -->
+                </table>
+        
+
+        
+        <h2 class="subtitle">Finetuning mechanism comparison</h2>
+        <p class="sub-description">The following samples are generated from baseline model, finetuned baseline model and our proposed MusiConGen model. We use the same chord and rhythm controls set to compare the performance of finetuning methods.</p>
+        <hr>
+        <div class="chord-info" style="position: relative;">
+            <div style="display: flex;">
+                <div style="width: 6%; display: flex; flex-flow: column wrap;">
+                    <p style="font-size: 15px; flex: 1 0 auto;">Generated Sample's Chords</p>
+                    <p style="font-size: 15px; flex: 1 0 auto;">Reference Chords</p>
+                </div>
+                <img src="samples/survey_samples/sample_0_443/ref.png" alt="Chord" class="chord-img2" style="width: 100%; max-width: 90%; display: block; margin: 0;">
+                <div class="progress-bar2"></div>
+            </div>
+        </div>
+                
+        <div class="sample-table">
+            <table>
+                <tr class="table-header">
+                    <td class="text-cell narrow" style="width: 4%">models</td>  <!-- First cell is empty for alignment purposes -->
+                    <td>Reference audio</td>
+                    <td>Baseline model</td>
+                    <td>Finetuned baseline model</td>
+                    <td>Our proposed model</td>
+                </tr>
+                <tr>
+                    <td class="text-cell narrow">Sample 001</td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_0_443/ref.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_0_443/ref.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_0_443/baseline.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_0_443/baseline.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_0_443/baseline_finetune.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_0_443/baseline_finetune.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_0_443/proposed.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_0_443/proposed.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>               
+                <tr>
+                    <td class="text-cell narrow">Sample 002</td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_1_97/ref.png')" ontimeupdate="updateProgress(this)">
+                        <source src="samples/survey_samples/sample_1_97/ref.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_1_97/baseline.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_1_97/baseline.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_1_97/baseline_finetune.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_1_97/baseline_finetune.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_1_97/proposed.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_1_97/proposed.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>
+                <tr>
+                    <td class="text-cell narrow">Sample 003</td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_2_359/ref.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_2_359/ref.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_2_359/baseline.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_2_359/baseline.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_2_359/baseline_finetune.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_2_359/baseline_finetune.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_2_359/proposed.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_2_359/proposed.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>
+                <tr>
+                    <td class="text-cell narrow">Sample 004</td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_3_132/ref.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_3_132/ref.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_3_132/baseline.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_3_132/baseline.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_3_132/baseline_finetune.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_3_132/baseline_finetune.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_3_132/proposed.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_3_132/proposed.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>
+                <tr>
+                    <td class="text-cell narrow">Sample 005</td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_4_229/ref.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_4_229/ref.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_4_229/baseline.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_4_229/baseline.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_4_229/baseline_finetune.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_4_229/baseline_finetune.wav" type="audio/mpeg">
+                    </audio></td>
+                    <td><audio controls onplay="changeImage2(this, 'samples/survey_samples/sample_4_229/proposed.png')" ontimeupdate="updateProgress2(this)">
+                        <source src="samples/survey_samples/sample_4_229/proposed.wav" type="audio/mpeg">
+                    </audio></td>
+                </tr>
+                    <!-- Add more rows as needed -->
+                </table>
+
+        </div>
+        <script src="script.js"></script>
+    </body>
+    </html>
+    
